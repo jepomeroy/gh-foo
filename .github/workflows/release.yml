@@ -14,6 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cli/gh-extension-precompile@v1
+        env:
+          CGO_ENABLED: 1
         with:
           generate_attestations: true
           go_version_file: go.mod

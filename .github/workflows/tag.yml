@@ -33,6 +33,11 @@ jobs:
           token: ${{ github.token }}
           branch: main
 
+      - name: Tag
+        run: |
+          git tag ${{ steps.semver.outputs.next }}
+          git push origin ${{ steps.semver.outputs.next }}
+
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:

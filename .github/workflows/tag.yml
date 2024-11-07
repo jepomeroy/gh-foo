@@ -1,0 +1,42 @@
+name: Tagging
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: write
+
+# Only one releases at a time
+concurrency:
+  group: release-github-shared-actions
+
+jobs:
+  release-and-tag:
+    name: Release and Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          majorList: release,rel
+          minorList: feature,feat
+          patchList: fix,test,chore,docs
+          token: ${{ github.token }}
+          branch: main
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          generateReleaseNotes: true
+          name: ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
+          token: ${{ github.token }}

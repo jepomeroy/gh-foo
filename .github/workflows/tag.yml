@@ -43,4 +43,5 @@ jobs:
         with:
           generateReleaseNotes: true
           name: ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
           token: ${{ github.token }}

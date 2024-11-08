@@ -13,18 +13,18 @@ permissions:
 
 # Only one releases at a time
 concurrency:
-  group: release-github-shared-actions
+  group: tag-and-release
 
 jobs:
-  release-and-tag:
-    name: Release and Tag
+  tag-and-release:
+    name: Tag and Release
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get Next Version
+      - name: Make Next Version
         id: semver
         uses: ietf-tools/semver-action@v1
         with:

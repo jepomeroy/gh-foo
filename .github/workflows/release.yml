@@ -18,6 +18,5 @@ jobs:
         env:
           CGO_ENABLED: 0
         with:
-          go_version: 1.22
           generate_attestations: true
           go_version_file: go.mod

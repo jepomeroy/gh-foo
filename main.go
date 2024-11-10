@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hi World! This is the gh-foo extension!")
+	fmt.Println("Howdy World! This is the gh-foo extension!")
 	client, err := api.DefaultRESTClient()
 	if err != nil {
 		fmt.Println(err)

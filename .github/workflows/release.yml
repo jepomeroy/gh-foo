@@ -1,4 +1,4 @@
-name: Tagging
+name: Tag and Release
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
         with:
           majorList: release,rel
           minorList: feature,feat
-          patchList: fix,test,chore,docs
+          patchList: fix,test,chore,doc
           token: ${{ github.token }}
           branch: main
 

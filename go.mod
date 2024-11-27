@@ -2,7 +2,7 @@ module github.com/jepomeroy/gh-foo
 
 go 1.21.13
 
-require github.com/cli/go-gh/v2 v2.11.0
+require github.com/cli/go-gh/v2 v2.11.1
 
 require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
